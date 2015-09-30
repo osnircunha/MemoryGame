@@ -1,0 +1,8 @@
+<div class="card" ng-class="{'flipped':isFlipped}" ng-click="isFlipped=!isFlipped">
+    <div class="face front">
+        <img ng-src="content/imgs/placeholder.png">
+    </div>
+    <div class="face back">
+        <img ng-src="data/imgs/{{item.picture}}">
+    </div>
+</div>

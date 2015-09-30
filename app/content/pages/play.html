@@ -1,0 +1,14 @@
+<div class="cards-grid">
+    <div class="card-item" ng-repeat="c in charsList track by $index">
+        <flippy class="fancy" ng-click="flip()" flip-duration="800" timing-function="ease-in-out"
+                on-load-callback="handleSelection(c, t)" item="c" index="$index">
+            <flippy-front>
+                <img ng-src="content/imgs/placeholder.png">
+            </flippy-front>
+
+            <flippy-back>
+                <img ng-src="data/imgs/{{c.picture}}">
+            </flippy-back>
+        </flippy>
+    </div>
+</div>

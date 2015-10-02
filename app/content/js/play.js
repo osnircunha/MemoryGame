@@ -22,7 +22,12 @@ app.controller('playController', function ($scope, $timeout) {
         } else {
             scope.locked = true;
             $scope.selection.s.locked = true;
-            $scope.selection = {c: null, s: null};
+
+            $timeout(function () {
+                scope.match();
+                $scope.selection.s.match();
+                $scope.selection = {c: null, s: null};
+            }, 1000);
         }
     }
 });

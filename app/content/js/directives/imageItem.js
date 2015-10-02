@@ -15,13 +15,19 @@ app.directive('flippy', function () {
                 elem.toggleClass('flipped');
             };
 
-            elem.click(function () {
+            scope.match = function(){
+                elem.toggleClass('match');
+            };
+
+            elem.click(function (e) {
+                e.preventDefault();
                 if(!scope.locked) {
                     scope.onLoadCallback({c: scope.item, t: scope});
                 }
             });
+            /*
             var options = {
-                flipDuration: (attrs.flipDuration) ? attrs.flipDuration : 400,
+                flipDuration: 400,
                 timingFunction: 'ease-in-out',
             };
 
@@ -34,6 +40,7 @@ app.directive('flippy', function () {
                     });
                 }
             });
+            */
 
         }
     };

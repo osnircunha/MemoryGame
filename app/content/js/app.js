@@ -7,7 +7,7 @@ app.run(function (arrayShuffle, $rootScope, $http) {
     $http.get('data/disneyChars.json').success(function (data) {
         data = arrayShuffle.shuffle(data);
         var array = [];
-        for(var i = 0; i < 14; i++){
+        for(var i = 0; i < 20; i++){
             var item = data.pop();
             array.push(item);
             array.push(item);

@@ -1,13 +1,17 @@
 /* app css stylesheet */
 html, body {
-    overflow: hidden;
-    padding-bottom: 10px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .cards-grid {
     height: 100%;
     display: table;
-    width:100%
+    width:100%;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
 
 .card-item {
@@ -75,9 +79,9 @@ html, body {
 
 /* FLIP */
 flippy-front.transiction, flippy-back.transiction {
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    transition: 0.4s;
+    -moz-transition: 0.8s;
+    -ms-transition: 0.8s;
+    transition: 0.8s;
 }
 
 flippy {
@@ -196,8 +200,44 @@ flippy.fancy flippy-back.flipped {
 }
 
 .match {
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-    border: solid #4cae4c;
+    border: solid #4cae4c 4px;
 }
 
 /* /FLIP */
+
+.landing {
+    width: 100%;
+    height: 100%;
+    background-image: url("../imgs/landing_bg.jpg");
+    background-size: cover;
+    background-clip: border-box;;
+}
+
+a.start-button {
+    box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+    text-align: center;
+    padding-top: 50px;
+    text-decoration: solid #262626 ;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+}
+
+.bounce {
+    position:fixed;
+    right:0;
+    top:0;
+    margin-top:125px;
+    margin-right:225px;
+    height:250px;
+    width:250px;
+    background:gold;
+    -webkit-animation:bounce 1s infinite;
+    border-radius: 50%;
+}
+
+@-webkit-keyframes bounce {
+    0%       { margin-top:120px; }
+    25%, 75% { margin-top:110px; }
+    50%      { margin-top:105px; }
+    100%     { bottom:100px; }
+}

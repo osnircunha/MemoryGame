@@ -1,9 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app = angular.module('memoryGame', ['ui.router', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('memoryGame', ['ui.router', 'ngAnimate']);
 
 app.run(function (arrayShuffle, $rootScope, $http) {
+    $rootScope.isSelecting = false;
     $http.get('data/disneyChars.json').success(function (data) {
         data = arrayShuffle.shuffle(data);
         var array = [];

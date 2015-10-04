@@ -1,7 +1,7 @@
 /**
  * Created by osnircunha on 9/30/15.
  */
-app.directive('flippy', function () {
+app.directive('flippy', function ($rootScope) {
     return {
         restrict: 'E',
         scope:{
@@ -16,11 +16,13 @@ app.directive('flippy', function () {
             };
 
             scope.match = function(){
-                elem.toggleClass('match');
+                elem.find('.img').toggleClass('match');
             };
 
             elem.click(function (e) {
-                if(!scope.locked) {
+                e.preventDefault();
+                if(!scope.locked && !$rootScope.isSelecting) {
+                    $rootScope.isSelecting = true;
                     scope.onLoadCallback({c: scope.item, t: scope});
                 }
             });

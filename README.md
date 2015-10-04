@@ -1,5 +1,5 @@
-# MemoryGame
+# MemoryGame #
 
 It is a simple web memory game using angular.js.
 
-## FLIP animation based on https://github.com/zwacky/angular-flippy
+* FLIP animation is based on [angular-flippy](https://github.com/zwacky/angular-flippy)

@@ -1,31 +1,18 @@
-<div class="column-index">
-    <div class="col-item text-center">A</div>
-    <div class="col-item text-center">B</div>
-    <div class="col-item text-center">C</div>
-    <div class="col-item text-center">D</div>
-    <div class="col-item text-center">E</div>
-</div>
-<div class="row-index">
-    <span class="row-item text-center">1</span>
-    <span class="row-item text-center">2</span>
-    <span class="row-item text-center">3</span>
-    <span class="row-item text-center">4</span>
-    <span class="row-item text-center">5</span>
-    <span class="row-item text-center">6</span>
-    <span class="row-item text-center">7</span>
-    <span class="row-item text-center">8</span>
-</div>
 <div class="cards-grid">
-    <div class="card-item" ng-repeat="c in charsList track by $index">
-        <flippy class="fancy" ng-click="flip()"
-                on-load-callback="handleSelection(c, t)" item="c" index="$index">
-            <flippy-front class="transiction">
-                <img ng-src="content/imgs/placeholder.png">
-            </flippy-front>
+    <div class="game-row" ng-class="{'referenceRow center' : $first}" ng-repeat="row in chunks" >
+        <div class="game-col" ng-class="{'referenceCol colCenter' : $first}" ng-repeat="c in row track by $index" ng-switch on="c.index">
+            <span ng-switch-default><strong>{{c.index}}</strong></span>
 
-            <flippy-back class="transiction">
-                <img ng-src="data/imgs/{{c.picture}}">
-            </flippy-back>
-        </flippy>
+            <flippy class="fancy" ng-click="flip()" ng-switch-when="undefined"
+                    on-load-callback="handleSelection(c, t)" item="c" index="c.ref">
+                <flippy-front class="transiction">
+                    <img ng-src="content/imgs/placeholder.png">
+                </flippy-front>
+
+                <flippy-back class="transiction">
+                    <img ng-src="data/imgs/{{c.picture}}">
+                </flippy-back>
+            </flippy>
+        </div>
     </div>
 </div>

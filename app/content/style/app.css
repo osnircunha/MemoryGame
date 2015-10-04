@@ -1,7 +1,13 @@
 /* app css stylesheet */
+html, body {
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
 .cards-grid {
-    left: 0;
-    right: 0;
+    height: 100%;
+    display: table;
+    width:100%
 }
 
 .card-item {
@@ -34,13 +40,38 @@
     width: 20px;
 }
 
-.col-item {
-    height: 19%;
-    width: 20px;
-    display: flex;
+.center {
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
+    text-align: center;
+    display:table;
+    margin:0 auto;
 }
+
+.colCenter {
+    margin-top: 40px;
+}
+
+.game-row {
+    display:inline-flex;
+    width:100%;
+    height:20%
+}
+.game-col {
+    display:table-row;
+    width:100%;
+    height:100%;
+    padding: 10px;
+}
+
+.referenceRow {
+    height: 20px;
+}
+.referenceCol {
+    padding: 0 10px 0 10px;
+    width: 20px;
+}
+
 
 /* FLIP */
 flippy-front.transiction, flippy-back.transiction {
@@ -61,7 +92,7 @@ flippy-front {
     position: absolute;
     z-index: 900;
     width: inherit;
-    height: inherit;
+    height: auto;
     -webkit-transform: rotate3d(0, 0, 0, 0deg);
     -moz-transform: rotate3d(0, 0, 0, 0deg);
     -ms-transform: rotate3d(0, 0, 0, 0deg);
@@ -80,7 +111,7 @@ flippy-back {
     position: absolute;
     z-index: 800;
     width: inherit;
-    height: inherit;
+    height: auto;
     -webkit-transform: rotate3d(0, 1, 0, -180deg);
     -moz-transform: rotate3d(0, 1, 0, -180deg);
     -ms-transform: rotate3d(0, 1, 0, -180deg);
@@ -118,11 +149,11 @@ flippy.fancy {
     font-size: .8em;
     cursor: pointer;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 flippy.fancy img {
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 

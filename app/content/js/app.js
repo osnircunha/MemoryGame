@@ -7,15 +7,42 @@ app.run(function (arrayShuffle, $rootScope, $http) {
     $http.get('data/disneyChars.json').success(function (data) {
         data = arrayShuffle.shuffle(data);
         var array = [];
+        var index = 0;
         for(var i = 0; i < 20; i++){
-            var item = data.pop();
-            array.push(item);
-            array.push(item);
+
+            var item1 = data.pop();
+            item1.ref = index++;
+            array.push(item1);
+
+            var item2 = JSON.parse(JSON.stringify(item1));
+            item2.ref = index++;
+            array.push(item2);
         }
 
         $rootScope.charsList = arrayShuffle.shuffle(array);
+        chunks($rootScope.charsList, 8);
     });
 
+    var chunks = function (list, columns) {
+        $rootScope.chunks = [];
+        var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        var rowRef = [];
+        for(var i = 0; i <= columns; i ++){
+            if(i == 0){
+                rowRef.push({index: ""});
+            } else {
+                rowRef.push({index: i});
+            }
+        }
+
+        $rootScope.chunks.push(rowRef);
+        var row = 0;
+        for(var i = 0; i < list.length; i += columns){
+            var rowItems = list.slice(i, Math.min(list.length, i + columns));
+            rowItems.unshift({index: alphabet[row++]});
+            $rootScope.chunks.push(rowItems);
+        }
+    }
 });
 
 app.factory('arrayShuffle', function(){

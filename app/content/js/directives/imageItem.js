@@ -20,7 +20,6 @@ app.directive('flippy', function () {
             };
 
             elem.click(function (e) {
-                e.preventDefault();
                 if(!scope.locked) {
                     scope.onLoadCallback({c: scope.item, t: scope});
                 }
